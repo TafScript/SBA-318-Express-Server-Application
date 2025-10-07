@@ -1,6 +1,6 @@
-const app = require('express')(); //express is a function
+const app = require('express')();  //<-- Express is a function
 const PORT = 3000;                //use parenthese to initialize 
-                                 // (not necessary but good to know)
+                                 // (not necessary but stops IDE warning.)
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
 })
