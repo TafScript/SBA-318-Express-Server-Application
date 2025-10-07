@@ -5,6 +5,8 @@ app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
 })
 
+
+// initial route.
 app.get('/data', (req, res) => {
     //.status() must be connected to
     //receive data from api.
@@ -15,9 +17,14 @@ app.get('/data', (req, res) => {
     
 })
 
+//posting data to url params.
 app.post('/data/:id', (req, res) => {
-    const { id } = req.params;
-    const { logo } = req.body;
+    // can avoid runtime problems by initializing
+    // empty object if no data from request.
+
+    //destructured variable definitions.
+    const { id } = req.params || {};
+    const { logo } = req.body || {};
 
     if (!logo) {
         res.status(404).send({ message: 'Requested data not found.'})
