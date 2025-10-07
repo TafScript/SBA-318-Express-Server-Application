@@ -1,6 +1,12 @@
-const app = require('express')();  //<-- Express is a function
+const express = require('express')();  //<-- Express is a function
 const PORT = 3000;                //use parenthese to initialize 
                                  // (not necessary but stops IDE warning.)
+const app = express();
+
+//middleware 
+app.use(express.json());
+
+
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
 })
@@ -9,7 +15,7 @@ app.listen(PORT, () => {
 // initial route.
 app.get('/data', (req, res) => {
     //.status() must be connected to
-    //receive data from api.
+    //receive data from api (not a regular route).
     res.status(200).send({
         data1: '21.376 ZEC',
         data2: '12.566 XMR'
@@ -24,9 +30,14 @@ app.post('/data/:id', (req, res) => {
 
     //destructured variable definitions.
     const { id } = req.params || {};
-    const { logo } = req.body || {};
+    //might send to DOM
+    //const { logo } = req.body || {};
 
-    if (!logo) {
+    if (!id) {
         res.status(404).send({ message: 'Requested data not found.'})
     }
+
+    res.send({
+        id: `${id}`
+    })
 })
