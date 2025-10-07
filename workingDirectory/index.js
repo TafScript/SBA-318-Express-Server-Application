@@ -14,3 +14,12 @@ app.get('/data', (req, res) => {
     })
     
 })
+
+app.post('/data/:id', (req, res) => {
+    const { id } = req.params;
+    const { logo } = req.body;
+
+    if (!logo) {
+        res.status(404).send({ message: 'Requested data not found.'})
+    }
+})
