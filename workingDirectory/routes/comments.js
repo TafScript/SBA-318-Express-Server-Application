@@ -2,8 +2,8 @@ import express from "express";
 const router = express.Router();
 
 let comments = [
-  { id: 1, postId: 1, text: "Nice update!" },
-  { id: 2, postId: 2, text: "Love Zcash!" }
+  { id: 1, postId: 1, text: "How many times do I have to say it? ZEC is where it's at." },
+  { id: 2, postId: 2, text: "Please buy more Zcash" }
 ];
 
 // GET comments (optional filter by postId)

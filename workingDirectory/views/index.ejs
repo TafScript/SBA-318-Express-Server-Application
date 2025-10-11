@@ -13,6 +13,20 @@
     <button type="submit">Add User</button>
   </form>
 
+  
+<form action="/posts" method="POST">
+  <input name="title" placeholder="Post title" required>
+  <input name="content" placeholder="Post content" required>
+  <button type="submit">Add Post</button>
+</form>
+
+
+<form action="/comments" method="POST">
+  <input name="postId" placeholder="Post ID" required>
+  <input name="text" placeholder="Comment text" required>
+  <button type="submit">Add Comment</button>
+</form>
+
   <p>Use /users, /posts, /comments endpoints for API testing</p>
 </body>
 </html>
