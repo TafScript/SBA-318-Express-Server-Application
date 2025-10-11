@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import { errorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
 const PORT = 3000;
@@ -19,6 +20,14 @@ app.use(express.static("views"));
 app.get("/", (req, res) => {
     res.send("Rest API test")
 })
+
+//routes
+app.use("/users", usersRouter);
+app.use("/posts", postsRouter);
+app.use("/comments", commentsRouter);
+
+//error handler last
+app.use(errorHandler);
 
 
 app.listen(PORT, () => {
