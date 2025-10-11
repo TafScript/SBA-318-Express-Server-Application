@@ -10,6 +10,16 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
+//ejs
+app.set("view engine", "ejs");
+app.set("views", "./views");
+app.use(express.static("views"));
+
+//root route
+app.get("/", (req, res) => {
+    res.send("Rest API test")
+})
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
@@ -43,6 +53,6 @@ app.post('/data/:id', (req, res) => {
 
     res.send({
         //id: `${id}`,
-        'console.log("Buy more Zcash!")'
+        
     })
 })
