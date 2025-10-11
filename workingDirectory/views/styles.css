@@ -10,7 +10,7 @@ input, button {
 }
 
 button {
-  background: black;
+  background: rgb(4, 3, 3);
   color: white;
   border: none;
   cursor: pointer;

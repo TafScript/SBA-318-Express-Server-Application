@@ -18,12 +18,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //ejs
 app.set("view engine", "ejs");
-app.set("views", "./views");
+app.set("views", "./workingDirectory/views");
 app.use(express.static("views"));
 
 //root route
 app.get("/", (req, res) => {
-    res.send("Rest API test")
+    res.render("index", {title: "Simple REST API"})
 })
 
 //routes

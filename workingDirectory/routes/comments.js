@@ -29,7 +29,7 @@ router.post("/", (req, res) => {
 // DELETE comment
 router.delete("/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  comments = comments.filter(function (comment) { return comment.id !== id; });
+  comments = comments.filter((comment) => { return comment.id !== id; });
   res.json({ message: "Comment deleted" });
 });
 
