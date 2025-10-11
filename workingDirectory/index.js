@@ -1,9 +1,12 @@
-const express = require('express')();  //<-- Express is a function
-const PORT = 3000;                //use parenthese to initialize 
-                                 // (not necessary but stops IDE warning.)
+import express from "express";
+import bodyParser from "body-parser";
+
 const app = express();
 
+
+
 //middleware 
+
 app.use(express.json());
 
 
@@ -34,10 +37,11 @@ app.post('/data/:id', (req, res) => {
     //const { logo } = req.body || {};
 
     if (!id) {
-        res.status(404).send({ message: 'Requested data not found.'})
+        return res.status(404).send({ message: 'Requested data not found.'})
     }
 
     res.send({
-        id: `${id}`
+        //id: `${id}`,
+        'console.log("Buy more Zcash!")'
     })
 })
