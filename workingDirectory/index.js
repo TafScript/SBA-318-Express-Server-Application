@@ -1,11 +1,11 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { errorHandler } from "./middleware/errorHandler.js";
-//import { logger } from "./middleware/logger.js";
-//import { timer } from "./middleware/timer.js";
+import { logger } from "./middleware/logger.js";
+import { timer } from "./middleware/timer.js";
 import usersRouter from "./routes/users.js";
-//import postsRouter from "./routes/posts.js";
-//import commentsRouter from "./routes.comments.js"; 
+import postsRouter from "./routes/posts.js";
+import commentsRouter from "./routes/comments.js"; 
 
 const app = express();
 const PORT = 3000;
@@ -28,8 +28,8 @@ app.get("/", (req, res) => {
 
 //routes
 app.use("/users", usersRouter);
-//app.use("/posts", postsRouter);
-//app.use("/comments", commentsRouter);
+app.use("/posts", postsRouter);
+app.use("/comments", commentsRouter);
 
 //error handler last
 app.use(errorHandler);
@@ -40,16 +40,7 @@ app.listen(PORT, () => {
 })
 
 
-// initial route.
-app.get('/data', (req, res) => {
-    //.status() must be connected to
-    //receive data from api (not a regular route).
-    res.status(200).send({
-        data1: '21.376 ZEC',
-        data2: '12.566 XMR'
-    })
-    
-})
+
 
 //posting data to url params.
 app.post('/data/:id', (req, res) => {
