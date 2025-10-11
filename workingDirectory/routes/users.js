@@ -15,4 +15,24 @@ router.get("/", (req, res) => {
     }
 });
 
+// post user
+router.post("/", (req, res) => {
+    const name = req.body.name;
+    const role = req.body.role;
+
+    const newUser = { 
+        id: users.length + 1, 
+        name: req.body.name, 
+        role:req.body.role        
+    };
+
+    users.push(newUser);
+    res.status(201).json(newUser);
+});
+
+//update user
+router.patch("/:id", (req, res) =>{
+    
+})
+
 export default router;
