@@ -23,7 +23,7 @@ router.post("/", (req, res) => {
     const newUser = { 
         id: users.length + 1, 
         name: req.body.name, 
-        role:req.body.role        
+        role: req.body.role        
     };
 
     users.push(newUser);
@@ -32,7 +32,19 @@ router.post("/", (req, res) => {
 
 //update user
 router.patch("/:id", (req, res) =>{
-    
+    const id = parseInt(req.params.id);
+    let user = users.find( (user) => {return user.id === id; });
+    if (!user) return res.status(404).json({message: "User not found"});
+
+    if (req.body.name) {
+        user.name = req.body.name;
+    }
+
+    if (req.body.role) {
+        user.role = req.body.role;
+    }
+
+    res.json(user);
 })
 
 export default router;
