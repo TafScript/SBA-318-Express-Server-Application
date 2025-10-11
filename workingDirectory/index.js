@@ -2,12 +2,13 @@ import express from "express";
 import bodyParser from "body-parser";
 
 const app = express();
-
+const PORT = 3000;
 
 
 //middleware 
-
 app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 
 app.listen(PORT, () => {
